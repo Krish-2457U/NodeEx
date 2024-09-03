@@ -1,28 +1,21 @@
-var fs = require("fs");
+const express = require('express');
 
-//To create a files
-fs.writeFile("calc1.js", 'console.log("done")', function (err) {
-  console.log("Data Saved");
-});
+const app = express();
 
-fs.writeFile("calc2.js", 'console.log("Done")', function (err2) {
-  console.log("Data Stored");
-});
+app.get('/',function(req,res){
+  res.send('Hello World!')
+})
 
-fs.writeFile("calc3.js", 'document.write("Hello World")', function (demo) {
-  console.log("Stored");
-});
+app.get('/alien', function(req, res){
+  const id = req.query.id
+  res.send('Welcome Back Alien..! '+id)
+})
 
-fs.writeFile(
-  "calc5.js",
-  "function replicate(){var a = 10; var b = 20; var c = a + b; }",
-  function (err3) {
-    console.log("Replicate Function");
-  }
-);
+app.get('/alien/:id', function(req,res){
+  const id = req.params.id
+  res.send('Hey Krishna : ' + id)
+})
 
-
-// To remove a file
-fs.unlink("calc1.js", function (err) {
-  console.log("Deleted");
+app.listen(9000, function(req, res){
+  console.log('Running....!')
 });
