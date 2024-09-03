@@ -1,7 +1,28 @@
-var calc = require('./calc.js')
-result = calc.mul(2,5)
+var fs = require("fs");
 
-result2 = calc.sub(10,5)
+//To create a files
+fs.writeFile("calc1.js", 'console.log("done")', function (err) {
+  console.log("Data Saved");
+});
 
-console.log("The Output is : "+result);
-console.log("The sub output is "+result2)
+fs.writeFile("calc2.js", 'console.log("Done")', function (err2) {
+  console.log("Data Stored");
+});
+
+fs.writeFile("calc3.js", 'document.write("Hello World")', function (demo) {
+  console.log("Stored");
+});
+
+fs.writeFile(
+  "calc5.js",
+  "function replicate(){var a = 10; var b = 20; var c = a + b; }",
+  function (err3) {
+    console.log("Replicate Function");
+  }
+);
+
+
+// To remove a file
+fs.unlink("calc1.js", function (err) {
+  console.log("Deleted");
+});
