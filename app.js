@@ -1,9 +1,6 @@
-var x = 10;
+var http  = require('http')
 
-var y = 20;
-
-var z = x + y;
-
-console.log(z);
-
-console.log("The Output is : "+z);
+http.createServer(function(req, res){
+    res.writeHead(200, {'Content-Type':'text/html'})
+    res.end("Welcome Back Alien!");
+}).listen(8080)
